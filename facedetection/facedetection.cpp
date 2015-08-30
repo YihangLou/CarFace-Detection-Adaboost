@@ -22,7 +22,7 @@
 using namespace std;
 using namespace cv;
 vector<string> testSamples;
-cv::CascadeClassifier cascade;
+cv::CascadeClassifier cascade;//cascade分类器
 const int detectSizeX = 320;//用来标明是将图缩放到在320*240
 const int detectSizeY = 240;
 const int detectRecXStart = 80;//检测窗口的起始大小
@@ -135,6 +135,7 @@ void detecctObject(string savePath)
 				if(find_overlap(*k, *j)>0.6 && k->height*k->width < j->height*j->width)//用来消除检测中两个宽重叠超过0.6的框，一般视为误检测
 					break;
 			}
+
 			if(j ==detectedRect.end())
 			{
 				//此处将框出的图像放大了0.03倍 使用画矩阵函数可以看到
